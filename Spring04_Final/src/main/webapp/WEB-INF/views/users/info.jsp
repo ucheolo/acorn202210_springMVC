@@ -57,13 +57,13 @@
 		<a href="${pageContext.request.contextPath}/users/updateform">개인정보 수정</a> 
 		<a href="javascript:deleteConfirm()">탈퇴</a>
 	</div>
-	<script>
-   function deleteConfirm(){
-      const isDelete=confirm("${id} 님 탈퇴 하시겠습니까?");
-      if(isDelete){
-         location.href="${pageContext.request.contextPath}/users/delete";
-      }
-   }
+<script>
+	function deleteConfirm(){
+ 		const isDelete=confirm("${id} 님 탈퇴 하시겠습니까?");
+		if(isDelete){
+		location.href="${pageContext.request.contextPath}/users/delete";
+		}
+	}
 </script>
 </body>
 </html>
