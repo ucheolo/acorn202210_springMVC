@@ -1,4 +1,4 @@
-package com.gura.spring03;
+package com.gura.spring04;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-	
-	@RequestMapping("/cafe/insertform")
-	public String insertform() {
-		
-		return "cafe/insertform";
-	}
-	
-	@RequestMapping("/play")
-	public String play() {
-		return "play";
-	}
 	
 	@RequestMapping("/")
 	public String home(HttpServletRequest request) {
