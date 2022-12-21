@@ -60,7 +60,8 @@
 			<button type="submit">업로드</button>
 		</form>
                
-   </div>
+	</div>
+	
    <!-- gura_util.js 로딩 -->
    <script src="${pageContext.request.contextPath }/resources/js/gura_util.js"></script>
    <script>
