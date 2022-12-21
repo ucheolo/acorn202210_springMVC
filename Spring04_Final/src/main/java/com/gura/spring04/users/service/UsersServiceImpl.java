@@ -50,7 +50,8 @@ public class UsersServiceImpl implements UsersService{
 		UsersDto resultDto = dao.getData(dto.getId());
 		//만일 select 된 회원 정보가 존재하고
 		if(resultDto != null) {
-			//Bcrypt 클래스의 static 메소드를 이용해서 입력한 비밀번호와 암호화 해서 저장된 비밀번호 일치 여부를 알아내야한다.
+			//Bcrypt 클래스의 static 메소드를 이용해서 입력한 비밀번호와 암호화 해서 
+			//저장된 비밀번호 일치 여부를 알아내야한다.
 			isValid = BCrypt.checkpw(dto.getPwd(), resultDto.getPwd());
 		}
 		
@@ -112,8 +113,17 @@ public class UsersServiceImpl implements UsersService{
 
 	@Override
 	public void updateUser(UsersDto dto, HttpSession session) {
-		// TODO Auto-generated method stub
+		//수정할 회원의 아이디
+		String id = (String)session.getAttribute("id");
+		//dto 에 id 도 넣어준다.
+		dto.setId(id);
 		
+		//만일 프로필 이미지를 등록하지 않은 상태면
+		if(dto.getProfile().equals("empty")) {
+			//users 테이블의 profile 칼럼을 null 인 상태로 유지하기 위해 profile 에 null 을 넣어준다.
+			dto.setProfile(null);
+		}
+		dao.update(dto);
 	}
 
 	@Override
