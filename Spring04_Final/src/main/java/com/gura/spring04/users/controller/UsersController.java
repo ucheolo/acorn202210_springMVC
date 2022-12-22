@@ -129,7 +129,6 @@ public class UsersController {
 	}
 	
 	//ajax 프로필 사진 업로드 요청처리
-	//ajax 프로필 사진 업로드 요청처리
 	@RequestMapping(value = "/users/profile_upload", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> profileUpload(HttpServletRequest request, MultipartFile image){
