@@ -14,7 +14,7 @@ public class CafeDaoImpl implements CafeDao{
 	@Autowired
 	private SqlSession session;
 	
-	@Override
+	@Override //글 목록
 	public List<CafeDto> getList(CafeDto dto) {
 		/*
 		 * 	검색기능은 
@@ -26,18 +26,18 @@ public class CafeDaoImpl implements CafeDao{
 		return session.selectList("cafe.getList", dto);
 	}
 
-	@Override
+	@Override //글의 갯수
 	public int getCount(CafeDto dto) {
 
 		return session.selectOne("cafe.getCount", dto);
 	}
 
-	@Override
+	@Override //글 추가
 	public void insert(CafeDto dto) {
 		session.insert("cafe.insert", dto);
 	}
 
-	@Override
+	@Override //글 정보 얻어오기
 	public CafeDto getData(int num) {
 		
 		return session.selectOne("cafe.getData", num);
@@ -48,13 +48,13 @@ public class CafeDaoImpl implements CafeDao{
 		session.update("cafe.addViewCount", num);
 	}
 
-	@Override
+	@Override // 글 삭제
 	public void delete(int num) {
 		session.delete("cafe.delete", num);
 		
 	}
 
-	@Override
+	@Override //글 수정
 	public void update(CafeDto dto) {
 		session.update("cafe.update",dto);
 		
