@@ -60,4 +60,10 @@ public class CafeDaoImpl implements CafeDao{
 		
 	}
 
+	@Override
+	public CafeDto getData(CafeDto dto) {
+		
+		return session.selectOne("cafe.getData2", dto);
+	}
+
 }
