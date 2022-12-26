@@ -172,6 +172,7 @@ public class FileServiceImpl implements FileService {
 		String saveFileName = dto.getSaveFileName();
 		String path = request.getServletContext().getRealPath("/resources/upload") + File.separator + saveFileName;
 		new File(path).delete();
+		
 		// DB 에서 파일 정보 삭제
 		dao.delete(num);
 	}
