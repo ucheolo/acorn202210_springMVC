@@ -23,6 +23,7 @@
 				로 출력할수있다.
 			--%>
 			
+			
 			<strong>${exception.message}</strong>
 			<a href="${pageContext.request.contextPath}/">인덱스로 돌아가기</a>
 		</p>
