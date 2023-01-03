@@ -38,7 +38,7 @@
 						</c:when>
 						<c:otherwise>
 							<img id="profileImage"
-								src="${pageContext.request.contextPath}${dto.profile}" />
+								src="${pageContext.request.contextPath}/users/images/${dto.profile}" />
 						</c:otherwise>
 					</c:choose></td>
 			</tr>
