@@ -5,7 +5,7 @@
 		댓글에 프로필 이미지도 같이 출력하기 위해 users 테이블과 join 을 한다. 
 		댓글도 paging 처리가 필요함으로 select 할때 startRowNum 과 endRowNum 이 필요하다.
 	-->
-	<select id="getList" parameterType="cafeCommentDto" resultType="cafeCommentDto">
+	<select id="getList" parameterType="com.gura.boot07.cafe.dto.CafeCommentDto" resultType="com.gura.boot07.cafe.dto.CafeCommentDto">
       SELECT *
       FROM
          (SELECT result1.*, ROWNUM AS rnum
@@ -28,7 +28,7 @@
    </update>
    
    <!-- 댓글을 저장할때 댓글의 글번호도 미리 CafeCommentDto 객체에 담아 와야 한다. -->
-   <insert id="insert" parameterType="cafeCommentDto">
+   <insert id="insert" parameterType="com.gura.boot07.cafe.dto.CafeCommentDto">
       INSERT INTO board_cafe_comment
       (num, writer, content, target_id, ref_group, comment_group, regdate)
       VALUES(#{num}, #{writer}, #{content}, #{target_id}, #{ref_group},
@@ -41,13 +41,13 @@
       FROM DUAL
    </select>
    
-   <update id="update" parameterType="cafeCommentDto">
+   <update id="update" parameterType="com.gura.boot07.cafe.dto.CafeCommentDto">
       UPDATE board_cafe_comment
       SET content=#{content}
       WHERE num=#{num}
    </update>
    
-   <select id="getData" parameterType="int" resultType="cafeCommentDto">
+   <select id="getData" parameterType="int" resultType="com.gura.boot07.cafe.dto.CafeCommentDto">
       SELECT num,writer,content,ref_group,comment_group,deleted,regdate
       FROM board_cafe_comment
       WHERE num=#{num}

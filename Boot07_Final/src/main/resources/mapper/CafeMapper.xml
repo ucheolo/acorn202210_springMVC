@@ -16,7 +16,7 @@
 		</choose>
 	</sql>
 	
-	<select id="getList" parameterType="cafeDto" resultType="cafeDto">
+	<select id="getList" parameterType="com.gura.boot07.cafe.dto.CafeDto" resultType="com.gura.boot07.cafe.dto.CafeDto">
       SELECT *
       FROM
          (SELECT result1.*, ROWNUM AS rnum
@@ -30,7 +30,7 @@
       ]]>
 	</select>
    
-	<select id="getCount" parameterType="cafeDto" resultType="int">
+	<select id="getCount" parameterType="com.gura.boot07.cafe.dto.CafeDto" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM board_cafe
 		<include refid="searchCondition"/>
@@ -42,7 +42,7 @@
 		VALUES (board_cafe_seq.NEXTVAL, #{writer}, #{title}, #{content}, #{viewCount}, SYSDATE)
 	</insert>
 	
-	<select id="getData" parameterType="int" resultType="cafeDto">
+	<select id="getData" parameterType="int" resultType="com.gura.boot07.cafe.dto.CafeDto">
 		SELECT result1.*
 		FROM
 			(SELECT num,writer,title,content,viewCount,TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate,
@@ -52,7 +52,7 @@
 		WHERE num=#{num}
 	</select>
 	
-	<select id="getData2" parameterType="cafeDto" resultType="cafeDto">
+	<select id="getData2" parameterType="com.gura.boot07.cafe.dto.CafeDto" resultType="com.gura.boot07.cafe.dto.CafeDto">
 		SELECT result1.*
 		FROM
 			(SELECT num,writer,title,content,viewCount,TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate,
@@ -76,7 +76,7 @@
 	</delete>
 	
 	<!-- #은 ?로 바뀌고 '${xxx}'는 전처리 -->
-	<update id="update" parameterType="cafeDto">
+	<update id="update" parameterType="com.gura.boot07.cafe.dto.CafeDto">
 		UPDATE board_cafe
 		SET title=#{title}, content='${content}'
 		WHERE num=#{num}
